@@ -14,9 +14,4 @@ public class Moto {
     public boolean esAltoCilindraje() {
         return esAltoCilindraje;
     }
-    
-    @Override
-    public String toString() {
-        return "Placa: " + placa + (esAltoCilindraje ? " (Alto Cilindraje)" : " (Bajo Cilindraje)");
-    }
 }

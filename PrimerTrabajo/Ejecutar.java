@@ -34,12 +34,12 @@ public class Ejecutar {
             switch(opcion) {
                 case 1: {
                     System.out.println("\n--- Registro de Motos ---");
-                    System.out.print("Ingrese 1 para moto de bajo cilindraje o 2 para moto de alto cilindraje: ");
+                    System.out.print("Ingrese 1 para moto de bajo cilindraje (400cc o menos) o 2 para moto de alto cilindraje (Mas de 400cc): ");
                     int tipoMoto;
                     while (!sc.hasNextInt()) {
                         System.out.println("Opción inválida. Debe ingresar un número.");
                         sc.next();
-                        System.out.print("Ingrese 1 para moto de bajo cilindraje o 2 para moto de alto cilindraje: ");
+                        System.out.print("Ingrese 1 para moto de bajo cilindraje (400cc o menos) o 2 para moto de alto cilindraje (Mas de 400cc): ");
                     }
                     tipoMoto = sc.nextInt();
                     sc.nextLine();
@@ -57,18 +57,19 @@ public class Ejecutar {
                     System.out.print("Ingrese la placa de la moto: ");
                     String placa = sc.nextLine();
                     if(parqueadero.registrarMoto(esAlto, puesto, placa)) {
-                        System.out.println("Moto registrada correctamente en el puesto " + puesto);
+                        String tipo = esAlto ? "alto cilindraje" : "bajo cilindraje";
+                        System.out.println("Moto con placa " + placa + " y de " + tipo + " fue registrada en el puesto " + puesto);
                     }
                     break;
                 }
                 case 2: {
                     System.out.println("\n--- Cobro de Tarifa ---");
-                    System.out.print("Ingrese 1 para moto de bajo cilindraje o 2 para moto de alto cilindraje: ");
+                    System.out.print("Ingrese 1 para moto de bajo cilindraje (400cc o menos) o 2 para moto de alto cilindraje (Mas de 400cc): ");
                     int tipoCobro;
                     while (!sc.hasNextInt()) {
                         System.out.println("Opción inválida. Debe ingresar un número.");
                         sc.next();
-                        System.out.print("Ingrese 1 para moto de bajo cilindraje o 2 para moto de alto cilindraje: ");
+                        System.out.print("Ingrese 1 para moto de bajo cilindraje (400cc o menos) o 2 para moto de alto cilindraje (Mas de 400cc): ");
                     }
                     tipoCobro = sc.nextInt();
                     sc.nextLine();
@@ -128,7 +129,8 @@ public class Ejecutar {
                     if(tarifa != -1) {
                         System.out.println("El monto a pagar es: $" + tarifa);
                         if(parqueadero.liberarPuesto(esAltoCobro, puestoSalida)) {
-                            System.out.println("El puesto ha sido liberado.");
+                            String tipo = esAltoCobro ? "alto cilindraje" : "bajo cilindraje";
+                            System.out.println("La moto con placa " + moto.getPlaca() + " y de " + tipo + " salió del puesto " + puestoSalida);
                         }
                     }
                     break;
