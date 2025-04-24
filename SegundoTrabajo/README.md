@@ -1,6 +1,4 @@
 # 📸 Sistema de Gestión de Pedidos Fotográficos  
-**Autor:** Juan Esteban Cardona Arango
-
 **Curso:** Programación Orientada a Objetos  
 
 ---
