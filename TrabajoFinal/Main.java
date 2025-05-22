@@ -2,7 +2,23 @@ import personajes.*;
 import armas.*;
 import java.util.Scanner;
 
+/**
+ * Clase principal para ejecutar el juego de lucha.
+ * 
+ * Permite a los usuarios elegir las clases y armas de dos personajes,
+ * crea los personajes correspondientes y luego inicia un combate entre ellos.
+ */
 public class Main {
+
+    /**
+     * Método principal que inicia la ejecución del programa.
+     * 
+     * - Solicita al usuario elegir la clase y nombre para dos personajes.
+     * - Permite elegir un arma entre dos opciones para cada personaje.
+     * - Crea los personajes basados en las elecciones del usuario.
+     * - Inicia un {@link JuegoLucha} entre los dos personajes creados.
+     *
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -33,12 +49,30 @@ public class Main {
         juego.iniciar();
     }
 
+    /**
+     * Método auxiliar para permitir al usuario elegir un arma.
+     * 
+     * Presenta dos opciones: Espada Pesada o Daga Ligera.
+     *
+     * @param sc Scanner para leer la entrada del usuario.
+     * @return Un objeto {@link Arma} según la elección.
+     */
     public static Arma elegirArma(Scanner sc) {
         System.out.println("Elige arma: 1) Espada Pesada  2) Daga Ligera");
         String eleccion = sc.nextLine();
         return eleccion.equals("1") ? new EspadaPesada() : new DagaLigera();
     }
 
+    /**
+     * Método auxiliar para crear un personaje basado en la clase indicada.
+     * 
+     * @param clase Nombre de la clase (guerrero, mago, arquero o asesino).
+     * @param nombre Nombre del personaje.
+     * @param arma Arma que usará el personaje.
+     * @return Instancia de {@link Personaje} correspondiente.
+     * @throws IllegalArgumentException Si la clase no es válida.
+     */
+    
     public static Personaje crearPersonaje(String clase, String nombre, Arma arma) {
         switch (clase.toLowerCase()) {
             case "guerrero":
